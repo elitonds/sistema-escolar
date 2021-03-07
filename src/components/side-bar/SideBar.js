@@ -13,36 +13,20 @@ import {
 import SubMenu from "antd/lib/menu/SubMenu";
 
 const SideBar = () => {
-  const [collapsed, setCollapsed] = useState(false);
-
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-  };
 
   const menuList = [
     {
-      name: "Principal",
+      name: "Classroom",
       subMenus: [
-        { name: "Home", path: "/" },
-        { name: "Classroom", path: "/classroom" },
-        { name: "Users", path: "/users" },
+        { name: "Student", path: "/student" },
       ],
     },
   ];
   return (
     <div style={{ width: 256 }}>
-      <Button
-        type="primary"
-        onClick={toggleCollapsed}
-        style={{ marginBottom: 16 }}
-      >
-        {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
-      </Button>
       <Menu
         mode="inline"
         theme="dark"
-        inlineCollapsed={collapsed}
-        onCollapse={collapsed}
         collapsedWidth="115px"
         breakpoint="lg"
       >
