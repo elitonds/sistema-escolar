@@ -8,7 +8,7 @@ import { Main } from "./Style";
 const MainContainer = () => {
   const { Header, Footer, Sider, Content } = Layout;
   return (
-    <Main>
+    <Main className="h-100 d-flex">
       <Layout>
         <Sider className="menu">
           <SideBar />

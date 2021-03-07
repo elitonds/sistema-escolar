@@ -7,14 +7,22 @@ const CustomSelect = ({
   onChange,
   fieldValue,
   fieldDescription,
+  placeholder,
 }) => {
   const { Option } = Select;
   return (
     <>
-      <Select style={{ width: 200 }} allowClear onChange={onChange}>
+      <Select
+        style={{ width: 200 }}
+        allowClear
+        onChange={onChange}
+        placeholder={placeholder}
+      >
         {listItems &&
           listItems.map((item) => {
-            return <Option value={item[fieldValue]}>{item[fieldDescription]}</Option>;
+            return (
+              <Option value={item[fieldValue]}>{item[fieldDescription]}</Option>
+            );
           })}
       </Select>
     </>
@@ -26,6 +34,7 @@ CustomSelect.propTypes = {
   onChange: PropTypes.func,
   fieldValue: PropTypes.string,
   fieldDescription: PropTypes.string,
+  placeholder: PropTypes.string,
 };
 
 CustomSelect.defaultProps = {
@@ -33,6 +42,7 @@ CustomSelect.defaultProps = {
   onChange: () => {},
   fieldValue: "",
   fieldDescription: "",
+  placeholder: "",
 };
 
 export default CustomSelect;
