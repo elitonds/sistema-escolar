@@ -19,6 +19,7 @@ const SideBar = () => {
       name: "Classroom",
       subMenus: [
         { name: "Student", path: "/student" },
+        { name: "Class", path: "/class" },
       ],
     },
   ];
