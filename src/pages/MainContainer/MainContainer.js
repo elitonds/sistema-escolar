@@ -1,7 +1,7 @@
 import { Card, Layout } from "antd";
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { Home, Student, Users } from "..";
+import { Class, Home, Student, Users } from "..";
 import { SideBar } from "../../components";
 import { Main } from "./Style";
 
@@ -22,8 +22,8 @@ const MainContainer = () => {
                   <Route path="/student">
                     <Student />
                   </Route>
-                  <Route path="/users">
-                    <Users />
+                  <Route path="/class">
+                    <Class />
                   </Route>
                   <Route path="/">
                     <Home />
