@@ -2,7 +2,8 @@ import { Input } from "antd";
 import { Field } from "formik";
 import React from "react";
 import { TextFieldContainer } from "./Style";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
+import { ErrorMessageForm } from "..";
 
 const TextField = React.forwardRef((props, ref) => {
   const {
@@ -30,14 +31,14 @@ const TextField = React.forwardRef((props, ref) => {
     return form && form.errors[name] && form.touched[name];
   };
 
-  const doOnBlur = event => {
+  const doOnBlur = (event) => {
     const { relatedTarget } = event;
-    if (relatedTarget && relatedTarget.getAttribute('type') === 'button') {
+    if (relatedTarget && relatedTarget.getAttribute("type") === "button") {
       event.preventDefault();
     }
   };
 
-  const onChangeField = e => {
+  const onChangeField = (e) => {
     form.setFieldValue(name, e.target.value);
     form.setFieldTouched(name, true, true);
     onChange(e);
@@ -51,9 +52,9 @@ const TextField = React.forwardRef((props, ref) => {
           <Field
             name={name}
             id={id || name}
-            className={`form-control campo ${
-              hasErrors() ? "is-invalid" : ""
-            } ${className || ""} ${disabled ? "desabilitado" : ""}`}
+            className={`form-control campo ${hasErrors() ? "is-invalid" : ""} ${
+              className || ""
+            } ${disabled ? "desabilitado" : ""}`}
             component={type || Input}
             type={maskType}
             readOnly={disabled}
@@ -65,21 +66,17 @@ const TextField = React.forwardRef((props, ref) => {
             placeholder={placeholder}
             onChange={onChangeField}
             style={style}
-            prefix={prefixIcon ? <i className={prefixIcon}/> : ""}
+            prefix={prefixIcon ? <i className={prefixIcon} /> : ""}
             value={value || form.values[name]}
             rows={minRowsTextArea}
           />
-          {form && form.touched[name] ? (
-            <span>{form.errors[name]}</span>
-          ) : (
-            ""
-          )}
+          <ErrorMessageForm form={form} name={name} />
         </>
       ) : (
         <Input
           ref={ref}
           placeholder={placeholder}
-          onChange={e => onChange(e.target.value)}
+          onChange={(e) => onChange(e.target.value)}
           disabled={disabled}
           onKeyDown={onKeyDown}
           value={value}
@@ -114,25 +111,25 @@ TextField.propTypes = {
 };
 
 TextField.defaultProps = {
-  name: '',
-  id: '',
+  name: "",
+  id: "",
   form: null,
-  className: '',
-  classNameField: '',
-  type: '',
-  maskType: '',
-  placeholder: '',
+  className: "",
+  classNameField: "",
+  type: "",
+  maskType: "",
+  placeholder: "",
   onChange: () => {},
   onKeyDown: () => {},
-  value: '',
+  value: "",
   disabled: false,
   maxLength: 100,
-  label: '',
+  label: "",
   style: {},
   prefixIcon: false,
   allowClear: true,
-  minRowsTextArea: '2',
-  height: '26',
+  minRowsTextArea: "2",
+  height: "26",
 };
 
 export default TextField;
