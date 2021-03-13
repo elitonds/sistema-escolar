@@ -31,7 +31,7 @@ const Student = () => {
 
   const onSumbmitForm = (values) => {};
 
-  const [validations, setValidtions] = useState({
+  const [validations, setValidations] = useState({
     name: Yup.string().required("Informe o nome do estudante"),
     gender: Yup.string().required("Informe o gênero do estudante"),
     cpf: Yup.string().required("Informe o cpf do estudante"),
@@ -66,7 +66,6 @@ const Student = () => {
                   onChange={(e) => setNome(e)}
                   name="name"
                   value={nome}
-                  form={form}
                 />
               </div>
               <div className="col-md-12 pt-2">
